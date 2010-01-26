@@ -1,13 +1,37 @@
 APE-on-Rails
 ============
 
-Introduction goes here.
+APE on Rails plugin for doing some basic APE routines.
+
+Features:
+* Environment based config.js
+* APE Command builder and sender
 
 
-Example
+Installation
+============
+gem based installation is not available yet
+
+	script/plugin install git://github.com/yalcin/APE-on-Rails.git
+
+Configuration
+=============
+Your ape_config.yml file under RAILS_ROOT/config directory. It's uses same naming policy with APE's config.js
+
+
+Methods
 =======
+example:
+	send_to_ape(:cmd => "send_message",
+				:raw => "message",
+				:channel => "lobby",
+				:data => {:message => "hey there"}.to_json)
 
-Example goes here.
+or  you may add optional parameters with :params option like:
+    send_to_ape(:cmd => "send_message",
+                :raw => "message",
+                :channel => "lobby",
+                :data => {:message => "hey there"}.to_json,
+				:params => {:room_password => "lol"})
 
-
-Copyright (c) 2010 [name of plugin creator], released under the MIT license
+Copyright (c) 2010 Yalcin ACIKYILDIZ, released under the MIT license

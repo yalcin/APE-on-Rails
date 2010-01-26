@@ -14,25 +14,5 @@ APE.Config.server = '#{conf["server"].value}';
 
     render :js => js_content
   end
-
-  def send_to_ape(p = {})
-    conf ||= config_ape
-    ape_string = {}
-    ape_params = {}
-
-    unless p.has_key(:params)
-      ape_params.merge(p[:params])
-    end
-    ape_params[:channel] = p[:channel]
-    ape_params[:raw] = p[:raw]
-    ape_params[:data] = p[:data]
-    ape_string[:cmd] = p[:cmd]
-    ape_string[:params] = ape_params
-
-    escaped_string = CGI::escape([ape_string].to_json)
-    Thread.new do
-      resp = Net:HTTP.get_response(URI::parse(conf["server"].conf + "/?" + escaped_string))
-    end
-  end
 end
 

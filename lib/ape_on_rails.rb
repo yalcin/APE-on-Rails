@@ -3,6 +3,7 @@ ActiveSupport::Dependencies.load_file "ape_on_rails_controller.rb"
 ActiveSupport::Dependencies.load_file "ape_on_rails_helper.rb"
 
 module ApeOnRails
+  include ApeOnRailsHelper
   module ClassMethods
   end
 

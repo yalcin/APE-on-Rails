@@ -1,4 +1,7 @@
-# desc "Explaining what the task does"
-# task :ape_on_rails do
-#   # Task goes here
-# end
+namespace :ape do
+  desc "Generate config.js file"
+  task :configjs => :environment do
+    puts "config.js"
+  end
+end
+
